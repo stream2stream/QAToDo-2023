@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Nav, Navbar, NavItem } from 'react-bootstrap';
-import { BrowserRouter, Route, Link, Routes } from 'react-router-dom';
+import { Route, Link, Routes } from 'react-router-dom';
 import NotFound from './components/NotFound';
 import CreatePost from './blog/CreatePost';
 import Posts from './blog/Posts';
@@ -41,7 +41,7 @@ export default function Header() {
         <h3 className="username">USER: {cookie_name}</h3>
         <hr></hr>
       </div>
-      <BrowserRouter>
+    
         <div>
           <Navbar bg="dark" variant="dark">
             <Nav>
@@ -55,20 +55,23 @@ export default function Header() {
             </Nav>
           </Navbar>
           <Routes>
-            <Route path="/create" element={<CreatePost />} />
-            <Route path="/searchByTitle" element={<PostsByTitle />} />
-            <Route path="/user/register" render={(props) => (
-              <LoginRegister {...props} is_register={true} handleLoggedIn={handleLoggedIn} />)} />
-            <Route path="/user/login" render={(props) => (
-              <LoginRegister {...props} is_register={false} handleLoggedIn={handleLoggedIn} />)} />
-            <Route path="/user/logout" render={(props) => (
-              <Logout {...props} handleLoggedIn={handleLoggedIn} />)} />
-            <Route path="/:post_id" element={<Posts />} />
-            <Route exact path="/" element={<Posts />} />
-            <Route path="/*" element={<NotFound />} />
+            <Route exact path="/" element={<Posts />}>
+                
+                <Route path="/create" element={<CreatePost />} />
+                <Route path="/searchByTitle" element={<PostsByTitle />} />
+                <Route path="/user/register" render={(props) => (
+                  <LoginRegister {...props} is_register={true} handleLoggedIn={handleLoggedIn} />)} />
+                <Route path="/user/login" render={(props) => (
+                  <LoginRegister {...props} is_register={false} handleLoggedIn={handleLoggedIn} />)} />
+                <Route path="/user/logout" render={(props) => (
+                  <Logout {...props} handleLoggedIn={handleLoggedIn} />)} />
+                <Route path="/:post_id" element={<Posts />} />
+            {/* <Route exact path="/" element={<Posts />} /> */}
+                <Route path='*' element={<NotFound />} />
+           </Route>
           </Routes>
         </div>
-      </BrowserRouter>
+    
     </div>
   );
 }
