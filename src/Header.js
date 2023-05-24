@@ -55,17 +55,17 @@ export default function Header() {
             </Nav>
           </Navbar>
           <Routes>
-            <Route path="/create" component={CreatePost} />
-            <Route path="/searchByTitle" component={PostsByTitle} />
+            <Route path="/create" element={<CreatePost />} />
+            <Route path="/searchByTitle" element={<PostsByTitle />} />
             <Route path="/user/register" render={(props) => (
               <LoginRegister {...props} is_register={true} handleLoggedIn={handleLoggedIn} />)} />
             <Route path="/user/login" render={(props) => (
               <LoginRegister {...props} is_register={false} handleLoggedIn={handleLoggedIn} />)} />
             <Route path="/user/logout" render={(props) => (
               <Logout {...props} handleLoggedIn={handleLoggedIn} />)} />
-            <Route path="/:post_id" component={Posts} />
-            <Route exact path="/" component={Posts} />
-            <Route path="/*" component={NotFound} />
+            <Route path="/:post_id" element={<Posts />} />
+            <Route exact path="/" element={<Posts />} />
+            <Route path="/*" element={<NotFound />} />
           </Routes>
         </div>
       </BrowserRouter>
