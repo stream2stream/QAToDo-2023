@@ -1,9 +1,22 @@
 import React from 'react';
 import Moment from 'react-moment';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
+import { Button } from 'react-bootstrap';
 
 export default function Post(props) {
+  const navigate = useNavigate();
+
+  const handleDeleteAction = (post_id) =>
+  {
+    navigate(`/delete/${post_id}`)
+  }
+
+  const handleUpdateAction = (post_id) =>
+  {
+    navigate(`/update/${post_id}`)
+  }
+  
   return (
     <>
       <article className="post">
@@ -15,10 +28,9 @@ export default function Post(props) {
           </div>
           {Cookies.get('userid') === String(props.post[1]) &&
             <div>
-              {/* <Link to={`/update/${props.post[0]}`}>Edit Post</Link>
-              {' '}{' '}{' '} */}
-              {/* <Link to={`/delete/${props.post[0]}`}>Delete Post</Link>
-              {' '}{' '}{' '} */}
+              <Button onClick={()=>{handleUpdateAction(props.post[0])}}>Edit Post</Button>
+               {' '}{' '}{' '}
+               <Button onClick={()=>{handleDeleteAction(props.post[0])}}>Delete Post</Button>              
             </div>
           }
         </header>

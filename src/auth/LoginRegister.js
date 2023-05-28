@@ -3,7 +3,7 @@ import ReactLoading from 'react-loading';
 import { Form, FormGroup, FormControl, Button } from 'react-bootstrap';
 import BlogDataService from '../services/blog_service';
 import Cookies from 'js-cookie';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 export default function LoginRegister(props) {
@@ -17,6 +17,7 @@ export default function LoginRegister(props) {
     const [login_error, setLoginError] = useState(false);
     const [register_error, setRegisterError] = useState(false);
 
+    const navigate = useNavigate()
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -117,7 +118,7 @@ export default function LoginRegister(props) {
                     <p>There was a problem logging in.</p><p>Please try again.</p>
                     <p>&nbsp;</p>
                 </div>}
-            {login_success && <Link to="/" />}
+            {login_success && navigate('/')}
 
         </div>
     );

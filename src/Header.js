@@ -8,6 +8,7 @@ import Logout from './auth/Logout';
 import Cookies from 'js-cookie';
 import PostsByTitle from './blog/PostsByTitle';
 import LoginRegister from './auth/LoginRegister';
+import DeletePost from './blog/DeletePost';
 
 export default function Header() {
 
@@ -50,6 +51,7 @@ export default function Header() {
                 : <NavItem><Link to="/user/logout">Logout</Link></NavItem>}
               <NavItem><Link to="/">Display Posts</Link></NavItem>
               <NavItem><Link to="/create">Create Post</Link></NavItem>
+              <NavItem><Link to="/delete">Delete Post</Link></NavItem>
               <NavItem><Link to="/searchByTitle">Search By Title</Link></NavItem>
 
             </Nav>
@@ -57,6 +59,7 @@ export default function Header() {
           <Routes>
             <Route path='/' element={<Posts/>}/>
             <Route path="create" element={<CreatePost />} />
+            <Route path="delete/:post_id" element={<DeletePost />} />
             <Route path="searchByTitle" element={<PostsByTitle />} />
             <Route path="user/register" element={<LoginRegister is_register={true} handleLoggedIn={handleLoggedIn} />} />
             <Route path="user/login" element={<LoginRegister is_register={false} handleLoggedIn={handleLoggedIn} />} />
