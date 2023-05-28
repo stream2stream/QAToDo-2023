@@ -4,6 +4,7 @@ import { Form, FormGroup, FormControl } from 'react-bootstrap';
 import Post from './Post';
 import NoPosts from './NoPosts';
 import BlogDataService from '../services/blog_service';
+import { Outlet } from 'react-router-dom';
 
 export default function PostsByTitle(props) {
 
@@ -47,6 +48,7 @@ export default function PostsByTitle(props) {
     return (
         <div className="Body">
             <p>&nbsp;</p>
+            <p>Should display something</p>
             <Form inline="true">
                 <FormGroup controlId="formInlineName">
                     <FormControl type="text" value={searchText} placeholder="Enter Title Text to SEARCH"
