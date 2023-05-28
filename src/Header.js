@@ -8,6 +8,7 @@ import Logout from './auth/Logout';
 import Cookies from 'js-cookie';
 import PostsByTitle from './blog/PostsByTitle';
 import LoginRegister from './auth/LoginRegister';
+import DeletePost from './blog/DeletePost';
 
 export default function Header() {
 
@@ -57,6 +58,7 @@ export default function Header() {
           <Routes>
             <Route path='/' element={<Posts/>}/>
             <Route path="create" element={<CreatePost />} />
+            <Route path="delete/:post_id" element={<DeletePost />} />
             <Route path="searchByTitle" element={<PostsByTitle />} />
             <Route path="user/register" element={<LoginRegister is_register={true} handleLoggedIn={handleLoggedIn} />} />
             <Route path="user/login" element={<LoginRegister is_register={false} handleLoggedIn={handleLoggedIn} />} />
