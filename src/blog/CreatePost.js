@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import PostView from "./PostView";
 import Cookies from "js-cookie";
 import BlogDataService from '../services/blog_service';

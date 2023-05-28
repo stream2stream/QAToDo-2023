@@ -5,11 +5,27 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 
+// Ignore this, it's new to version 6.4 but renders as MPA
+// import {
+//   createBrowserRouter,
+//   RouterProvider,
+// } from "react-router-dom";
+// import NotFound from './components/NotFound';
+
+// const router = createBrowserRouter([
+//   {
+//     path: "/",
+//     element: <App/>,
+//     errorElement: <NotFound/>
+//   },
+// ]);
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <App/>
     </BrowserRouter>
   </React.StrictMode>
 );

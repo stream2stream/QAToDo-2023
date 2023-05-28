@@ -55,20 +55,17 @@ export default function Header() {
             </Nav>
           </Navbar>
           <Routes>
-            <Route exact path="/" element={<Posts />}>
-                
-                <Route path="/create" element={<CreatePost />} />
-                <Route path="/searchByTitle" element={<PostsByTitle />} />
-                <Route path="/user/register" render={(props) => (
-                  <LoginRegister {...props} is_register={true} handleLoggedIn={handleLoggedIn} />)} />
-                <Route path="/user/login" render={(props) => (
-                  <LoginRegister {...props} is_register={false} handleLoggedIn={handleLoggedIn} />)} />
-                <Route path="/user/logout" render={(props) => (
-                  <Logout {...props} handleLoggedIn={handleLoggedIn} />)} />
-                <Route path="/:post_id" element={<Posts />} />
-            {/* <Route exact path="/" element={<Posts />} /> */}
-                <Route path='*' element={<NotFound />} />
-           </Route>
+            <Route path='/'>
+            <Route path="create" element={<CreatePost />} />
+            <Route path="searchByTitle" element={<PostsByTitle />} />
+            <Route path="user/register" render={(props) => (
+              <LoginRegister {...props} is_register={true} handleLoggedIn={handleLoggedIn} />)} />
+            <Route path="user/login" render={(props) => (
+              <LoginRegister {...props} is_register={false} handleLoggedIn={handleLoggedIn} />)} />
+            <Route path="user/logout" render={(props) => (
+              <Logout {...props} handleLoggedIn={handleLoggedIn} />)} />
+            <Route path=":post_id" element={<Posts />} />
+            </Route>
           </Routes>
         </div>
     
