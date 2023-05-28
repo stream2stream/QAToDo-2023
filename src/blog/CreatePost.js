@@ -54,7 +54,7 @@ export default function CreatePost(props) {
                     <p>Post created successfully by Author ID: {author_id}</p>
                     <p></p>
                     <div>
-                        <Link to={`/${post[0]}`}>Show Post</Link>
+                        <Link to={`/post/${post[0]}`}>Show Post</Link>
                     </div>
                     <p>&nbsp;</p>
                 </div>
