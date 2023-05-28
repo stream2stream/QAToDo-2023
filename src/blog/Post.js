@@ -7,15 +7,7 @@ import { Button } from 'react-bootstrap';
 export default function Post(props) {
   const navigate = useNavigate();
 
-  const handleDeleteAction = (post_id) =>
-  {
-    navigate(`/delete/${post_id}`)
-  }
-
-  const handleUpdateAction = (post_id) =>
-  {
-    navigate(`/update/${post_id}`)
-  }
+  // Add handlers to execute the edit/delete button actions
   
   return (
     <>
@@ -28,9 +20,7 @@ export default function Post(props) {
           </div>
           {Cookies.get('userid') === String(props.post[1]) &&
             <div>
-              <Button onClick={()=>{handleUpdateAction(props.post[0])}}>Edit Post</Button>
-               {' '}{' '}{' '}
-               <Button onClick={()=>{handleDeleteAction(props.post[0])}}>Delete Post</Button>              
+              {/* Add some functionality here to handle a post being updated or deleted, buttons would useful */}
             </div>
           }
         </header>
