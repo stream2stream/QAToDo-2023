@@ -78,7 +78,7 @@ export default function UpdatePost() {
                 <PostView btnText={`Update Post`} content={content} title={title} postID={postID} hide={false} handleSubmit={handleSubmit} handleChangeTitle={handleChangeTitle} handleChangeContent={handleChangeContent} />
             }
             {updated_success &&
-                <SuccessMessage postID={postID} action={`updated`} link={`/${postID}`} link_text={`Show Post`} />
+                <SuccessMessage postID={postID} action={`updated`} link={`/post/${postID}`} link_text={`Show Post`} />
             }
         </div>
     );
